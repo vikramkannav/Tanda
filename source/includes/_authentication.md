@@ -204,9 +204,7 @@ curl -X POST \
 
 ```json
  {
-   "user": {
-      "temp_password": "temp_password"
-   }
+  "message":"Password is send on your email address"
   }
 ```
 >The above code returns errors in JSON struture 

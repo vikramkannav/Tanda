@@ -2,6 +2,8 @@
 
 ## Create Tanda
 
+This API is used for the  create Tanda. 
+
 ```shell
 curl -X POST \
   http://base_url/api/tanda \
@@ -98,7 +100,7 @@ curl -X GET \
               
 ## Tanda Users
 
-This is used for the list of the Tanda list.
+This API is used for the list of the Tanda users.
 
 ```shell
 curl -X GET \
@@ -145,3 +147,34 @@ curl -X GET \
     --------- | ------- | ----------- |-----------|---------
               |         |             |           |
               
+## Tanda Payment
+
+This is API used for the list of the Tanda list.
+
+```shell
+curl -X POST \
+  http://base_url/api/tanda/:id/payment \
+  -H 'accept: application/json' \
+  -H 'authorization: Token token:\"authtoken2\"' \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+```    
+
+>The above code is return the json structure like 
+
+```json
+{
+ "message" :"Payement is done Successfully"
+}
+
+``` 
+
+### HTTP Request
+
+`POST http://base_url/api/tanda/:id/payment`
+
+### Parameters
+
+    Parameter | type | Description | Required |	Default
+    --------- | ------- | ----------- |-----------|---------
+              |         |             |           |
