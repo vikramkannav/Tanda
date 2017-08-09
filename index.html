@@ -236,6 +236,9 @@
                   <li>
                     <a href="#forget-password" class="toc-h2 toc-link" data-title="Authentication">Forget Password</a>
                   </li>
+                  <li>
+                    <a href="#retrieve-access-token" class="toc-h2 toc-link" data-title="Authentication">Retrieve access Token</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -243,14 +246,6 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#bank-detail-2" class="toc-h2 toc-link" data-title="Bank Detail">Bank Detail</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#contacts" class="toc-h1 toc-link" data-title="Contacts">Contacts</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#contact-list" class="toc-h2 toc-link" data-title="Contacts">Contact List</a>
                   </li>
               </ul>
           </li>
@@ -268,6 +263,9 @@
                   </li>
                   <li>
                     <a href="#tanda-payment" class="toc-h2 toc-link" data-title="Tanda">Tanda Payment</a>
+                  </li>
+                  <li>
+                    <a href="#tanda-add-user" class="toc-h2 toc-link" data-title="Tanda">Tanda Add user</a>
                   </li>
               </ul>
           </li>
@@ -321,9 +319,9 @@
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">
   </span><span class="p">{</span><span class="w">
-  </span><span class="s2">"errors"</span><span class="p">:{</span><span class="w">
+  </span><span class="s2">"errors"</span><span class="p">:[{</span><span class="w">
     </span><span class="s2">"message"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Please enter the valid email address, password &amp; mobile number"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+  </span><span class="p">}]</span><span class="w">
  </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request'>HTTP Request</h3>
 <p><code>POST http://base_url/api/signup</code></p>
@@ -404,9 +402,10 @@
 <p>This returns the errors message in json  structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"errors"</span><span class="p">:[{</span><span class="w">
         </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please enter the valid email address and password"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+
   </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
 <p><code>POST http://base_url/api/signin</code></p>
@@ -473,8 +472,9 @@
 <p>The above code returns errors in JSON structure </p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
-   </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+   </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
      </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"Please enter the correct user name, mobile number &amp; password"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
@@ -527,7 +527,7 @@
 <h2 id='forget-password'>Forget Password</h2>
 <p>This API is used for the update profile </p>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
-  http://base_url/api/user/forget <span class="se">\</span>
+  http://base_url/api/forget <span class="se">\</span>
   -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
@@ -548,12 +548,13 @@
 <p>The above code returns errors in JSON structure </p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
-   </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+   </span><span class="s2">"errors"</span><span class="p">:[</span><span class="w"> </span><span class="p">{</span><span class="w">
      </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"Please enter the correct email address"</span><span class="w"> 
-      </span><span class="p">}</span><span class="w">
+       </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
-<p><code>POST http://base_url/api/user/forget</code></p>
+<p><code>POST http://base_url/api/forget</code></p>
 <h3 id='parameters-4'>Parameters</h3>
 <table><thead>
 <tr>
@@ -576,6 +577,51 @@
 <aside class="success">Status Code :200 OK </aside>
 
 <aside class="warning">Error code  :422 Unprocessable entity </aside>
+<h2 id='retrieve-access-token'>Retrieve access Token</h2>
+<p>This API is used for the retrive the access token</p>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+  http://base_url/api/refresh_token <span class="se">\</span>
+  -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Refresh Token:\"refreshtoken1\"'</span> <span class="se">\</span>
+  -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+   <span class="o">{</span>
+    <span class="s2">"refresh_token"</span>:<span class="s2">"refreshtoken1"</span>
+   <span class="o">}</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"vikram"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"vikramkanav@gmail.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"password"</span><span class="p">:</span><span class="s2">"xyz"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"mobile_number"</span><span class="p">:</span><span class="s2">"9953055456"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"refresh_token"</span><span class="p">:</span><span class="s2">"refreshtoken2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"auth_token"</span><span class="w"> </span><span class="p">:</span><span class="s2">"authtoken2"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-5'>HTTP Request</h3>
+<p><code>POST http://base_url/api/refresh_token</code></p>
+<h3 id='parameters-5'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>type</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>refresh_token</td>
+<td>string</td>
+<td>refresh token</td>
+<td>true</td>
+<td></td>
+</tr>
+</tbody></table>
 <h1 id='bank-detail'>Bank Detail</h1><h2 id='bank-detail-2'>Bank Detail</h2>
 <p>This API is used for submit the Bank information.</p>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
@@ -609,9 +655,9 @@
 <p>The above code returns errors in JSON struture </p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
-   </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+   </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
      </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"Please enter the correct account holder name ,bank name, account number &amp; state name"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+      </span><span class="p">}]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request'>HTTP Request</h3>
 <p><code>POST http://base_url/api/bankdetail</code></p>
@@ -657,39 +703,10 @@
 
 <aside class="success">Status Code :200 OK </aside>
 
-<aside class="warning">Error Code  :401 Unauthrized error</aside>
+<aside class="warning">Error Code  :401 Unauthorized error</aside>
 
 <aside class="warning">Error Code  :422 Unprocessable entity</aside>
     
-<h1 id='contacts'>Contacts</h1><h2 id='contact-list'>Contact List</h2>
-<p>This API is used for the list of the contacts in mobile.</p>
-<pre class="highlight shell tab-shell"><code></code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="w">
-</span></code></pre>
-<blockquote>
-<p>The above command return the errors in json structure</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="w">
-</span></code></pre><h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://base_url/api/contacts</code></p>
-<h3 id='parameters'>Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>type</th>
-<th>Description</th>
-<th>Required</th>
-<th>Default</th>
-</tr>
-</thead><tbody>
-</tbody></table>
-
-<aside class="success">Status Code :200 OK </aside>
-
-<aside class="warning"> </aside>
 <h1 id='tanda'>Tanda</h1><h2 id='create-tanda'>Create Tanda</h2>
 <p>This API is used for the  create Tanda. </p>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
@@ -704,7 +721,6 @@
         "tanda_day": "sunday",
         "type": "weekly",
         "name": "Tanda 1",
-        "date": "12/03/2016"
       }
 }'</span>
 </code></pre>
@@ -763,13 +779,6 @@
 <td>true</td>
 <td></td>
 </tr>
-<tr>
-<td>date</td>
-<td>date</td>
-<td>Tanda create date</td>
-<td></td>
-<td>current date</td>
-</tr>
 </tbody></table>
 <h2 id='tanda-list'>Tanda List</h2>
 <p>This is used for the list of the Tanda list.</p>
@@ -785,16 +794,13 @@
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"tanda_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tanda1"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"tanda_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/03/2016"</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tanda1"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tanda2"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"tanda_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11/08/2016"</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tanda2"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tanda3"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"tanda_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11/09/2016"</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tanda3"</span><span class="w">
         </span><span class="p">}</span><span class="w">
 
     </span><span class="p">]</span><span class="w">
@@ -819,6 +825,10 @@
 <td></td>
 </tr>
 </tbody></table>
+
+<aside class="success">Status Code :200 OK </aside>
+
+<aside class="warning">Error Code  :422 Unprocessable entity</aside>
 <h2 id='tanda-users'>Tanda Users</h2>
 <p>This API is used for the list of the Tanda users.</p>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
@@ -832,7 +842,7 @@
 <p>The above code is return the json structure like </p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-   </span><span class="s2">"users"</span><span class="p">:[</span><span class="w">
+   </span><span class="s2">"user"</span><span class="p">:[</span><span class="w">
        </span><span class="p">{</span><span class="w">
        </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Breant Wells"</span><span class="p">,</span><span class="w">
        </span><span class="s2">"mobile_number"</span><span class="p">:</span><span class="s2">"411-906-6802"</span><span class="p">,</span><span class="w">
@@ -872,6 +882,11 @@
 <td></td>
 </tr>
 </tbody></table>
+
+<aside class="success">Status Code :200 OK </aside>
+
+<aside class="warning">Error Code  :401 Unauthorized error</aside>
+              
 <h2 id='tanda-payment'>Tanda Payment</h2>
 <p>This is API used for the list of the Tanda list.</p>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
@@ -908,6 +923,68 @@
 <td></td>
 </tr>
 </tbody></table>
+
+<aside class="success">Status Code :200 OK </aside>
+
+<aside class="warning">Error Code  :401 Unauthorized error</aside>
+
+<aside class="warning">Error Code  :422 Unprocessable entity</aside>
+<h2 id='tanda-add-user'>Tanda Add user</h2>
+<p>This is API used  for add user in Tanda.</p>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+  http://base_url/api/tanda/:id/users <span class="se">\</span>
+  -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Token token:\"authtoken2\"'</span> <span class="se">\</span>
+  -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+</code></pre>
+<blockquote>
+<p>The above code is return the json structure like </p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">   </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"invite_user"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Raj"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"mobile_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9898393362"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Parvesh"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9898367632"</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+   </span><span class="p">}</span><span class="w"> 
+   </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shyam"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"mobile_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8393473877"</span><span class="w">
+    </span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jai"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"mobile_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7874738747"</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+
+</span></code></pre><h3 id='http-request-5'>HTTP Request</h3>
+<p><code>POST http://base_url/api/tanda/:id/users</code></p>
+<h3 id='parameters-5'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>type</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<aside class="success">Status Code :200 OK </aside>
+
+<aside class="warning">Error Code  :422 Unprocessable entity</aside>
+    
 <h1 id='errors'>Errors</h1>
 <aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
 
