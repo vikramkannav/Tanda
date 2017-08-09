@@ -231,18 +231,18 @@
                     <a href="#sign-in" class="toc-h2 toc-link" data-title="Authentication">Sign In</a>
                   </li>
                   <li>
-                    <a href="#update-profile-quot-setting-page-quot" class="toc-h2 toc-link" data-title="Authentication">Update Profile "setting page"</a>
+                    <a href="#update-profile" class="toc-h2 toc-link" data-title="Authentication">Update Profile</a>
                   </li>
                   <li>
-                    <a href="#reset-password" class="toc-h2 toc-link" data-title="Authentication">Reset Password</a>
+                    <a href="#forget-password" class="toc-h2 toc-link" data-title="Authentication">Forget Password</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#bank-details" class="toc-h1 toc-link" data-title="Bank Details">Bank Details</a>
+            <a href="#bank-detail" class="toc-h1 toc-link" data-title="Bank Detail">Bank Detail</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#bank-details-2" class="toc-h2 toc-link" data-title="Bank Details">Bank Details</a>
+                    <a href="#bank-detail-2" class="toc-h2 toc-link" data-title="Bank Detail">Bank Detail</a>
                   </li>
               </ul>
           </li>
@@ -393,7 +393,7 @@
       </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"vikram"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"vikramkanav@gmail.com"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"password"</span><span class="p">:</span><span class="s2">"xyz"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"mobileNumber"</span><span class="p">:</span><span class="s2">"9953055456"</span><span class="w">
+      </span><span class="s2">"mobile_number"</span><span class="p">:</span><span class="s2">"9953055456"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"refresh_token"</span><span class="p">:</span><span class="s2">"refreshtoken1"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"auth_token"</span><span class="w"> </span><span class="p">:</span><span class="s2">"authtoken1"</span><span class="w">
@@ -440,9 +440,9 @@
 
 <aside class="warning">Error Code  :422 Unprocessable entity</aside>
     
-<h2 id='update-profile-quot-setting-page-quot'>Update Profile &quot;setting page&quot;</h2>
+<h2 id='update-profile'>Update Profile</h2>
 <p>This API is used for the update profile </p>
-<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
   http://base_url/signup <span class="se">\</span>
   -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'authorization: Token token:\"authtoken2\"'</span> <span class="se">\</span>
@@ -466,11 +466,10 @@
      </span><span class="s2">"mobile_number"</span><span class="p">:</span><span class="s2">"9466205050"</span><span class="p">,</span><span class="w">
      </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcxyz"</span><span class="w">  
      </span><span class="p">},</span><span class="w">
-   </span><span class="s2">"auth_token"</span><span class="p">:</span><span class="s2">"authtoken2"</span><span class="w">  
-  </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>The above code returns errors in JSON struture </p>
+<p>The above code returns errors in JSON structure </p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -478,7 +477,7 @@
       </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
-<p><code>POST http://base_url/api/user</code></p>
+<p><code>PUT http://base_url/api/user</code></p>
 <h3 id='parameters-3'>Parameters</h3>
 <table><thead>
 <tr>
@@ -524,10 +523,10 @@
 <aside class="warning">error code  :401 unauthrized error </aside>
 
 <aside class="warning">error code  :422 unprocessable entity </aside>
-<h2 id='reset-password'>Reset Password</h2>
+<h2 id='forget-password'>Forget Password</h2>
 <p>This API is used for the update profile </p>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
-  http://base_url/api/user/reset <span class="se">\</span>
+  http://base_url/api/user/forget <span class="se">\</span>
   -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
@@ -545,7 +544,7 @@
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>The above code returns errors in JSON struture </p>
+<p>The above code returns errors in JSON structure </p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -553,7 +552,7 @@
       </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
-<p><code>POST http://base_url/api/user/reset</code></p>
+<p><code>POST http://base_url/api/user/forget</code></p>
 <h3 id='parameters-4'>Parameters</h3>
 <table><thead>
 <tr>
@@ -576,7 +575,7 @@
 <aside class="success">Status Code :200 OK </aside>
 
 <aside class="warning">Error code  :422 Unprocessable entity </aside>
-<h1 id='bank-details'>Bank Details</h1><h2 id='bank-details-2'>Bank Details</h2>
+<h1 id='bank-detail'>Bank Detail</h1><h2 id='bank-detail-2'>Bank Detail</h2>
 <p>This API is used for submit the Bank information.</p>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
   http://base_url/bankdetail <span class="se">\</span>
@@ -602,8 +601,7 @@
         </span><span class="s2">"bank_name"</span><span class="p">:</span><span class="s2">"SBI"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"account_number"</span><span class="p">:</span><span class="s2">"1204"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"state_name"</span><span class="p">:</span><span class="s2">"Paris"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"auth_token"</span><span class="p">:</span><span class="s2">"authtoken2"</span><span class="w">   
+        </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
@@ -664,37 +662,11 @@
     
 <h1 id='contacts'>Contacts</h1><h2 id='contact-list'>Contact List</h2>
 <p>This API is used for the list of the contacts in mobile.</p>
-<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-  http://base_url/api/contacts <span class="se">\</span>
-  -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
-  -H <span class="s1">'authorization: Token token:\"authtoken2\"'</span> <span class="se">\</span>
-  -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
-  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
-
-</code></pre>
+<pre class="highlight shell tab-shell"><code></code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"contacts"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"smith"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"mobile_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8739303033"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rsath"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"mobile_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7437030364"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"mobile_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9747830364"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"david"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"mobile_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8789030364"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-
+<pre class="highlight json tab-json"><code><span class="w">
 </span></code></pre>
 <blockquote>
 <p>The above command return the errors in json structure</p>
