@@ -266,6 +266,9 @@
                   <li>
                     <a href="#tanda-users" class="toc-h2 toc-link" data-title="Tanda">Tanda Users</a>
                   </li>
+                  <li>
+                    <a href="#tanda-payment" class="toc-h2 toc-link" data-title="Tanda">Tanda Payment</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -539,9 +542,7 @@
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
-   </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"temp_password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"temp_password"</span><span class="w">
-   </span><span class="p">}</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"Password is send on your email address"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
@@ -717,7 +718,9 @@
 <aside class="success">Status Code :200 OK </aside>
 
 <aside class="warning"> </aside>
-<h1 id='tanda'>Tanda</h1><h2 id='create-tanda'>Create Tanda</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+<h1 id='tanda'>Tanda</h1><h2 id='create-tanda'>Create Tanda</h2>
+<p>This API is used for the  create Tanda. </p>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
   http://base_url/api/tanda <span class="se">\</span>
   -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'authorization: Token token:\"authtoken2\"'</span> <span class="se">\</span>
@@ -845,7 +848,7 @@
 </tr>
 </tbody></table>
 <h2 id='tanda-users'>Tanda Users</h2>
-<p>This is used for the list of the Tanda list.</p>
+<p>This API is used for the list of the Tanda users.</p>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
   http://base_url/api/tanda/:id/users <span class="se">\</span>
   -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
@@ -880,6 +883,42 @@
 </span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET http://base_url/api/tanda/:id/users</code></p>
 <h3 id='parameters-3'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>type</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='tanda-payment'>Tanda Payment</h2>
+<p>This is API used for the list of the Tanda list.</p>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+  http://base_url/api/tanda/:id/payment <span class="se">\</span>
+  -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Token token:\"authtoken2\"'</span> <span class="se">\</span>
+  -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+</code></pre>
+<blockquote>
+<p>The above code is return the json structure like </p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+ </span><span class="s2">"message"</span><span class="w"> </span><span class="p">:</span><span class="s2">"Payement is done Successfully"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
+<p><code>POST http://base_url/api/tanda/:id/payment</code></p>
+<h3 id='parameters-4'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
