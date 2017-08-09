@@ -37,9 +37,9 @@ curl -X POST \
 
 ```json
  {
-   "errors": {
+   "errors": [{
      "message":"Please enter the correct account holder name ,bank name, account number & state name"
-      }
+      }]
   }
 ```
 ### HTTP Request
@@ -56,6 +56,6 @@ curl -X POST \
     state_name  | string  | User state name   |  true     |
     
 <aside class="success">Status Code :200 OK </aside>
-<aside class="warning">Error Code  :401 Unauthrized error</aside>
+<aside class="warning">Error Code  :401 Unauthorized error</aside>
 <aside class="warning">Error Code  :422 Unprocessable entity</aside>
     

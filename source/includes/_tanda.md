@@ -17,7 +17,6 @@ curl -X POST \
 		"tanda_day": "sunday",
 	    "type": "weekly",
 	    "name": "Tanda 1",
-	    "date": "12/03/2016"
 	  }
 }'
 ```
@@ -52,8 +51,7 @@ curl -X POST \
     tanda_day  | string  | Tanda date or day | true  |
     type  | string | Weekly or Monthly | true |
     name  | string | Tanda Name  | true  |
-    date  | date   | Tanda create date   | | current date
-
+  
 ## Tanda List
 
 This is used for the list of the Tanda list.
@@ -72,16 +70,13 @@ curl -X GET \
 ```json
 {
 	"tanda_list": [{
-			"name": "tanda1",
-			"tanda_date": "12/03/2016"
+			"name": "tanda1"
 		},
 		{
-			"name": "tanda2",
-			"tanda_date": "11/08/2016"
+			"name": "tanda2"
 		},
 		{
-			"name": "tanda3",
-			"tanda_date": "11/09/2016"
+			"name": "tanda3"
 		}
 
 	]
@@ -97,6 +92,9 @@ curl -X GET \
     Parameter | type | Description | Required |	Default
     --------- | ------- | ----------- |-----------|---------
               |         |             |           |
+<aside class="success">Status Code :200 OK </aside>
+<aside class="warning">Error Code  :422 Unprocessable entity</aside>
+
               
 ## Tanda Users
 
@@ -115,7 +113,7 @@ curl -X GET \
 
 ```json
   {
-   "users":[
+   "user":[
        {
        "name":"Breant Wells",
        "mobile_number":"411-906-6802",
@@ -146,6 +144,9 @@ curl -X GET \
     Parameter | type | Description | Required |	Default
     --------- | ------- | ----------- |-----------|---------
               |         |             |           |
+
+<aside class="success">Status Code :200 OK </aside>
+<aside class="warning">Error Code  :401 Unauthorized error</aside>
               
 ## Tanda Payment
 
@@ -178,6 +179,12 @@ curl -X POST \
     Parameter | type | Description | Required |	Default
     --------- | ------- | ----------- |-----------|---------
               |         |             |           |
+<aside class="success">Status Code :200 OK </aside>
+<aside class="warning">Error Code  :401 Unauthorized error</aside>
+<aside class="warning">Error Code  :422 Unprocessable entity</aside>
+
+
+
 ## Tanda Add user
 
 This is API used  for add user in Tanda.
@@ -194,14 +201,38 @@ curl -X POST \
 >The above code is return the json structure like 
 
 ```json
+   {
+   	"invite_user": [{
+   		"name": "Raj",
+   		"mobile_number": "9898393362"
+   	}, {
+   		"name": "Parvesh",
+   		"mobile": "9898367632"
+   	}]
+   } 
+   {
+      	"user": [{
+   		"name": "Shyam",
+   		"mobile_number": "8393473877"
+   	} {
+   		"name": "Jai",
+   		"mobile_number": "7874738747"
+   	}]
+   }
+
 ``` 
 
 ### HTTP Request
 
-`POST http://base_url/api/tanda/:id/payment`
+`POST http://base_url/api/tanda/:id/users`
 
 ### Parameters
 
     Parameter | type | Description | Required |	Default
     --------- | ------- | ----------- |-----------|---------
               |         |             |           |
+
+<aside class="success">Status Code :200 OK </aside>
+<aside class="warning">Error Code  :422 Unprocessable entity</aside>
+    
+

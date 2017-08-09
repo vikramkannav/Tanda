@@ -40,9 +40,9 @@ curl -X POST \
 ```json
 
   {
-  "errors":{
+  "errors":[{
     "message" : "Please enter the valid email address, password & mobile number"
-  }
+  }]
  }
 ```
 
@@ -61,6 +61,7 @@ curl -X POST \
     
 <aside class="success">Status Code :200 OK </aside>
 <aside class="warning">Error Code  :422 Unprocessable entity</aside>
+
 
 ## Sign In
 
@@ -100,9 +101,10 @@ curl -X POST \
 
 ```json
   {
-  	"errors": {
+  	"errors":[{
   		"message": "Please enter the valid email address and password"
-  	}
+  	}]
+  	
   }
 ```
 
@@ -159,8 +161,9 @@ curl -X PUT \
 
 ```json
  {
-   "errors": {
+   "errors": [{
      "message":"Please enter the correct user name, mobile number & password"
+      }
       }
   }
 ```
@@ -210,9 +213,10 @@ curl -X POST \
 
 ```json
  {
-   "errors": {
+   "errors":[ {
      "message":"Please enter the correct email address" 
-      }
+       }
+      ]
   }
 ```
 ### HTTP Request
@@ -228,3 +232,43 @@ curl -X POST \
      
 <aside class="success">Status Code :200 OK </aside>
 <aside class="warning">Error code  :422 Unprocessable entity </aside>
+
+
+##Retrieve access Token 
+
+This API is used for the retrive the access token
+
+```shell
+curl -X POST \
+  http://base_url/api/refresh_token \
+  -H 'accept: application/json' \
+  -H 'authorization: Refresh Token:\"refreshtoken1\"' \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+   {
+   	"refresh_token":"refreshtoken1"
+   }
+```
+>The above command returns JSON structured like this:
+
+```json
+{
+    "user": {
+      "name":"vikram",
+      "email":"vikramkanav@gmail.com",
+      "password":"xyz",
+      "mobile_number":"9953055456"
+    },
+    "refresh_token":"refreshtoken2",
+    "auth_token" :"authtoken2"
+}
+```
+### HTTP Request
+
+`POST http://base_url/api/refresh_token`
+
+### Parameters
+
+    Parameter | type | Description | Required |	Default
+    --------- | ------- | ----------- |-----------|---------
+     refresh_token| string |refresh token |true|               |           |
