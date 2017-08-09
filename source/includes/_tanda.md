@@ -178,3 +178,30 @@ curl -X POST \
     Parameter | type | Description | Required |	Default
     --------- | ------- | ----------- |-----------|---------
               |         |             |           |
+## Tanda Add user
+
+This is API used  for add user in Tanda.
+
+```shell
+curl -X POST \
+  http://base_url/api/tanda/:id/users \
+  -H 'accept: application/json' \
+  -H 'authorization: Token token:\"authtoken2\"' \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+```    
+
+>The above code is return the json structure like 
+
+```json
+``` 
+
+### HTTP Request
+
+`POST http://base_url/api/tanda/:id/payment`
+
+### Parameters
+
+    Parameter | type | Description | Required |	Default
+    --------- | ------- | ----------- |-----------|---------
+              |         |             |           |

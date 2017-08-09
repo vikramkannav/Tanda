@@ -12,7 +12,6 @@ includes:
   - introduction
   - authentication
   - bankdetails
-  - contacts
   - tanda
   - errors
 

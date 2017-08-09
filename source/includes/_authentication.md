@@ -188,7 +188,7 @@ This API is used for the update profile
 
 ```shell
 curl -X POST \
-  http://base_url/api/user/forget \
+  http://base_url/api/forget \
   -H 'accept: application/json' \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
@@ -217,7 +217,7 @@ curl -X POST \
 ```
 ### HTTP Request
 
-`POST http://base_url/api/user/forget`
+`POST http://base_url/api/forget`
 
 ### Parameters
 
