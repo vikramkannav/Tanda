@@ -138,6 +138,7 @@ curl -X PUT \
 		 "user_name" :"vikram",
 		"mobile_number": "9466205050",
 	    "password":"xyzabc",
+	    "confirm_password":"xyzabc",
 	  }
 }'
 ```
@@ -174,7 +175,7 @@ curl -X PUT \
     name  | string  | User name of the user   |  true     |
     mobile_number  | string  | Mobile number of the user   |  true     |
     password  | string  | password of the user   |  true     |
-    password | string  | confirm password of the user   |  true     |
+    confirm_password | string  | confirm password of the user   |  true     |
     
 <aside class="success">Status Code :200 OK </aside>
 <aside class="warning">error code  :401 unauthrized error </aside>
