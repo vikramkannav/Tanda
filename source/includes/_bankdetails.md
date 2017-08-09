@@ -1,6 +1,6 @@
-#Bank Details
+#Bank Detail
 
-##Bank Details
+##Bank Detail
 
 This API is used for submit the Bank information.
 
@@ -30,8 +30,7 @@ curl -X POST \
 		"bank_name":"SBI",
 		"account_number":"1204",
 		"state_name":"Paris"
-		},
-    "auth_token":"authtoken2"	
+		}
 }
 ```
 >The above code returns errors in JSON struture 

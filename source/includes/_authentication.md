@@ -89,7 +89,7 @@ curl -X POST \
       "name":"vikram",
       "email":"vikramkanav@gmail.com",
       "password":"xyz",
-      "mobileNumber":"9953055456"
+      "mobile_number":"9953055456"
     },
     "refresh_token":"refreshtoken1",
     "auth_token" :"authtoken1"
@@ -122,12 +122,12 @@ curl -X POST \
 <aside class="success">Status Code :200 OK </aside>
 <aside class="warning">Error Code  :422 Unprocessable entity</aside>
     
-##Update Profile "setting page"
+##Update Profile
 
 This API is used for the update profile 
 
 ```shell
-curl -X POST \
+curl -X PUT \
   http://base_url/signup \
   -H 'accept: application/json' \
   -H 'authorization: Token token:\"authtoken2\"' \
@@ -152,10 +152,9 @@ curl -X POST \
      "mobile_number":"9466205050",
      "password": "abcxyz"  
      },
-   "auth_token":"authtoken2"  
-  }
+   }
 ```
->The above code returns errors in JSON struture 
+>The above code returns errors in JSON structure 
 
 ```json
  {
@@ -166,7 +165,7 @@ curl -X POST \
 ```
 ### HTTP Request
 
-`POST http://base_url/api/user`
+`PUT http://base_url/api/user`
 
 ### Parameters
 
@@ -182,13 +181,13 @@ curl -X POST \
 <aside class="warning">error code  :422 unprocessable entity </aside>
 
 
-##Reset Password 
+##Forget Password 
 
 This API is used for the update profile 
 
 ```shell
 curl -X POST \
-  http://base_url/api/user/reset \
+  http://base_url/api/user/forget \
   -H 'accept: application/json' \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
@@ -206,7 +205,7 @@ curl -X POST \
   "message":"Password is send on your email address"
   }
 ```
->The above code returns errors in JSON struture 
+>The above code returns errors in JSON structure 
 
 ```json
  {
@@ -217,13 +216,13 @@ curl -X POST \
 ```
 ### HTTP Request
 
-`POST http://base_url/api/user/reset`
+`POST http://base_url/api/user/forget`
 
 ### Parameters
 
     Parameter | type | Description | Required |	Default
     --------- | ------- | ----------- |-----------|---------
-    email | string | user email address | true
+    email | string | user email address | true|
     
      
 <aside class="success">Status Code :200 OK </aside>
