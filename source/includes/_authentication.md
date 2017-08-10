@@ -2,7 +2,7 @@
 
 ## Sign up 
 
-This API is used for the sign up.In this API not required to be passed in header section.
+This API is used for the sign up.In this API auth token not required to be passed in header section.
 
 ```shell
 curl -X POST \
