@@ -7,14 +7,33 @@ The Tanda API uses the following error codes:
 
 Error Code | Meaning
 ---------- | -------
-400 | Bad Request -- Your request sucks.
-401 | Unauthorized -- Your API key is wrong.
-403 | Forbidden -- The kitten requested is hidden for administrators only.
-404 | Not Found -- The specified kitten could not be found.
-405 | Method Not Allowed -- You tried to access a kitten with an invalid method.
-406 | Not Acceptable -- You requested a format that isn't json.
-410 | Gone -- The kitten requested has been removed from our servers.
-418 | I'm a teapot.
-429 | Too Many Requests -- You're requesting too many kittens! Slow down!
-500 | Internal Server Error -- We had a problem with our server. Try again later.
-503 | Service Unavailable -- We're temporarily offline for maintenance. Please try again later.
+Error Code | Meaning
+---------- | -------
+400 | Bad Request
+401 | Unauthorized
+402 | Payment Required
+403 | Forbidden
+404 | Not Found
+405 | Method Not Allowed
+406 | Not Acceptable
+407 | Proxy Authentication Required
+408 | Request Timeout
+409 | Conflict
+410 | Gone
+411 | Length Required
+412 | Precondition Failed
+413 | Payload Too Large
+414 | URI Too Long
+415 | Unsupported Media Type
+416 | Range Not Satisfiable
+417 | Expectation Failed
+418 | I'm a teapot
+421 | Misdirected Request
+422 | Unprocessable Entity
+423 | Locked
+424 | Failed Dependency
+426 | Upgrade Required
+428 | Precondition Required
+429 | Too Many Requests
+431 | Request Header Fields Too Large
+451 | Unavailable For Legal Reasons
