@@ -65,7 +65,7 @@ curl -X POST \
 
 ## Sign In
 
-This API is used for the Sign In. This is open API auth token is not to berequired to passed in Header
+This API is used for the Sign In. This is open API auth token is not to be required to passed in Header
 
 ```shell
 curl -X POST \
@@ -117,7 +117,7 @@ curl -X POST \
 
     Parameter | type | Description | Required |	Default
     --------- | ------- | ----------- |-----------|---------
-    email  | string  | email address of the user name   |  true     |
+    email  | string  | email address of the user  |  true     |
     password  | string  | User password   |  true     |
 
 
@@ -137,7 +137,7 @@ curl -X PUT \
   -H 'content-type: application/json' \
   -d '{
 	"user" :{
-		 "user_name" :"vikram",
+		 "name" :"vikram",
 		"mobile_number": "9466205050",
 	    "password":"xyzabc",
 	    "confirm_password":"xyzabc",

@@ -12,7 +12,7 @@ curl -X POST \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
   -d '{
-	"bankDetails": {
+	"bankDetail": {
 		"account_name": "vikram",
 		"bank_name":"SBI",
 		"account_number":"1204",
@@ -25,7 +25,7 @@ curl -X POST \
 
 ```json
 {
-	"bankDetails": {
+	"bankDetail": {
 		"account_name": "vikram",
 		"bank_name":"SBI",
 		"account_number":"1204",
