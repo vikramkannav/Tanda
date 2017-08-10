@@ -8,7 +8,7 @@ This is open API and auth-token is not required to be passed in the header secti
 
 ```shell
 curl -X POST \
-  http://base_url/api/signup \
+  http://base_url/signup \
   -H 'accept: application/json' \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
@@ -29,7 +29,6 @@ curl -X POST \
 	"user": {
 		"name": "vikram",
 		"email": "vikramkanav@gmail.com",
-		"password": "xyzxyz",
 		"mobile_number": "9953055456"
 	},
 	"refresh_token": "refreshtoken1",
@@ -50,7 +49,7 @@ curl -X POST \
 
 ### HTTP Request
 
-`POST http://base_url/api/signup`
+`POST http://base_url/signup`
  
 ### Parameters
 
@@ -73,7 +72,7 @@ This is open API and auth-token is not required to be passed in the header secti
 
 ```shell
 curl -X POST \
-  http://base_url/api/signin \
+  http://base_url/signin \
   -H 'accept: application/json' \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
@@ -93,7 +92,6 @@ curl -X POST \
     "user": {
       "name":"vikram",
       "email":"vikramkanav@gmail.com",
-      "password":"xyz",
       "mobile_number":"9953055456"
     },
     "refresh_token":"refreshtoken1",
@@ -115,7 +113,7 @@ curl -X POST \
 
 ### HTTP Request
 
-`POST http://base_url/api/signin`
+`POST http://base_url/signin`
  
 ### Parameters
 
@@ -128,16 +126,16 @@ curl -X POST \
 <aside class="success">Status Code :200 OK </aside>
 <aside class="warning">Error Code  :422 Unprocessable entity</aside>
     
-##Forget password 
+##Forgot password 
 
-This API is used to reset the password with forget password option with an email address.
+This API is used to reset the password with forgot password option with an email address.
 
 This is open API and auth-token is not required to be passed in the header section. 
 
 
 ```shell
 curl -X POST \
-  http://base_url/api/forget \
+  http://base_url/forgot \
   -H 'accept: application/json' \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
@@ -166,7 +164,7 @@ curl -X POST \
 ```
 ### HTTP Request
 
-`POST http://base_url/api/forget`
+`POST http://base_url/forgot`
 
 ### Parameters
 
@@ -185,7 +183,7 @@ This API is used for the retrieve the access token with help of refresh token.
 
 ```shell
 curl -X POST \
-  http://base_url/api/:id/refresh_token \
+  http://base_url/users/:id/refresh_token \
   -H 'accept: application/json' \
   -H 'authorization: Refresh Token:\"refreshtoken1\"' \
   -H 'cache-control: no-cache' \
@@ -201,8 +199,7 @@ curl -X POST \
 	"user": {
 		"name": "vikram",
 		"email": "vikramkanav@gmail.com",
-		"password": "xyz",
-		"mobile_number": "9953055456"
+	    "mobile_number": "9953055456"
 	},
 	"refresh_token": "refreshtoken2",
 	"auth_token": "authtoken2"
@@ -210,7 +207,7 @@ curl -X POST \
 ```
 ### HTTP Request
 
-`POST http://base_url/api/:id/refresh_token`
+`POST http://base_url/users/:id/refresh_token`
 
 ### Parameters
 

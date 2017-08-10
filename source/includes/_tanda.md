@@ -9,7 +9,7 @@ day (weekday) or date (month, date) of Tanda, type (weekly or monthly)
 
 ```shell
 curl -X POST \
-  http://base_url/api/tanda \
+  http://base_url/tanda \
   -H 'accept: application/json' \
   -H 'authorization: Token token:\"authtoken2\"' \
   -H 'cache-control: no-cache' \
@@ -39,7 +39,7 @@ curl -X POST \
 
 ### HTTP Request
 
-`POST http://base_url/api/tanda`
+`POST http://base_url/tanda`
 
 ### Parameters
 
@@ -61,7 +61,7 @@ Start date of the Tanda & total number of users in Tanda.
 
 ```shell
 curl -X GET \
-  http://base_url/api/tandas \
+  http://base_url/tandas \
   -H 'accept: application/json' \
   -H 'authorization: Token token:\"authtoken2\"' \
   -H 'cache-control: no-cache' \
@@ -80,7 +80,7 @@ curl -X GET \
 
 ### HTTP Request
 
-`GET http://base_url/api/tandas`
+`GET http://base_url/tandas`
 
 ### Parameters
 
@@ -96,7 +96,7 @@ This API is used to pay of the Tanda.
 
 ```shell
 curl -X POST \
-  http://base_url/api/tanda/:id/payment \
+  http://base_url/tandas/:id/payment \
   -H 'accept: application/json' \
   -H 'authorization: Token token:\"authtoken2\"' \
   -H 'cache-control: no-cache' \
@@ -114,7 +114,7 @@ curl -X POST \
 
 ### HTTP Request
 
-`POST http://base_url/api/tanda/:id/payment`
+`POST http://base_url/tandas/:id/payment`
 
 ### Parameters
 
