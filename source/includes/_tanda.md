@@ -51,6 +51,10 @@ curl -X POST \
     tanda_day  | string  | Tanda date or day | true  |
     type  | string | Weekly or Monthly | true |
     name  | string | Tanda Name  | true  |
+
+<aside class="success">Status Code :200 OK </aside>
+<aside class="warning">Error Code  :401 Unauthorized error</aside>
+
   
 ## Tanda List
 
@@ -147,7 +151,7 @@ curl -X GET \
 
 <aside class="success">Status Code :200 OK </aside>
 <aside class="warning">Error Code  :401 Unauthorized error</aside>
-              
+               
 ## Tanda Payment
 
 This is API used for the list of the Tanda list.
