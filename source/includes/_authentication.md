@@ -128,66 +128,6 @@ curl -X POST \
 <aside class="success">Status Code :200 OK </aside>
 <aside class="warning">Error Code  :422 Unprocessable entity</aside>
     
-##Update profile
-
-This API is used for the update profile by the user. 
-
-```shell
-curl -X PUT \
-  http://base_url/api/user \
-  -H 'accept: application/json' \
-  -H 'authorization: Token token:\"authtoken2\"' \
-  -H 'cache-control: no-cache' \
-  -H 'content-type: application/json' \
-  -d '{
-	"user": {
-    	"name": "vikram",
-    	"mobile_number": "9466205050",
-    	"password": "xyzabc123",
-    	"confirm_password": "xyzabc123",
-    }
-}'
-```
-
->The above command returns in JSON structure:
-
-```json
- {
- 	"user": {
- 		"name": "vikram",
- 		"email": "vikramkanav@gmail.com",
- 		"mobile_number": "9466205050",
- 		"password": "xyzabc123"
- 	}
- }
-```
->The above code returns errors in JSON structure 
-
-```json
- {
- 	"errors": [{
- 		"message": "Please enter the correct user name, mobile number & password"
- 	}]
- }
-```
-### HTTP Request
-
-`PUT http://base_url/api/user`
-
-### Parameters
-
-    Parameter | type | Description | Required 
-    --------- | ------- | ----------- |-----------
-    name  | string  | Name of the user   |  true     
-    mobile_number  | string  | Mobile number of the user  |  true     
-    password  | string  | Password of the user   |  true     
-    confirm_password | string  | Confirm password of the user   |  true     
-    
-<aside class="success">Status Code :200 OK </aside>
-<aside class="warning">error code  :401 unauthrized error </aside>
-<aside class="warning">error code  :422 unprocessable entity </aside>
-
-
 ##Forget password 
 
 This API is used to reset the password with forget password option with an email address.
@@ -245,7 +185,7 @@ This API is used for the retrieve the access token with help of refresh token.
 
 ```shell
 curl -X POST \
-  http://base_url/api/refresh_token \
+  http://base_url/api/:id/refresh_token \
   -H 'accept: application/json' \
   -H 'authorization: Refresh Token:\"refreshtoken1\"' \
   -H 'cache-control: no-cache' \
@@ -270,7 +210,7 @@ curl -X POST \
 ```
 ### HTTP Request
 
-`POST http://base_url/api/refresh_token`
+`POST http://base_url/api/:id/refresh_token`
 
 ### Parameters
 

@@ -17,8 +17,8 @@ curl -X POST \
   -d '{
 	"tanda" :{
 		"amount":"200",
-		"tanda_day": "sunday",
-	    "type": "weekly",
+		"day": "4",
+	    "kind": "weekly",
 	    "name": "Tanda 1",
 	  }
 }'
@@ -30,8 +30,8 @@ curl -X POST \
 {
 	"tanda": {
 		"amount": "200",
-		"date": "sunday",
-		"type": "weekly",
+		"day": "4",
+		"kind": "weekly",
 		"name": "Tanda 1"
 	}
 }
@@ -46,8 +46,8 @@ curl -X POST \
     Parameter | type | Description | Required 
     --------- | ------- | ----------- |-----------
     amount| int   | Amount of Tanda  | true  
-    tanda_day  | string  | Date or day of the Tanda | true  
-    type  | string | Tanda type weekly or monthly | true 
+    day  | string  | Date (0-28)or day(0-6) | true  
+    kind  | string | Tanda kind weekly or monthly | true 
     name  | string | Name of Tanda  | true  
 
 <aside class="success">Status Code :200 OK </aside>
@@ -89,50 +89,6 @@ curl -X GET \
               |         |             |           
 <aside class="success">Status Code :200 OK </aside>
 <aside class="warning">Error Code  :422 Unprocessable entity</aside>
-
-              
-## Tanda users
-
-This API is used to list of user those are accepted and pending the acceptance of the this Tanda request.
-
-```
-shell
-curl -X GET \
-  http://base_url/api/tanda/:id/users \
-  -H 'accept: application/json' \
-  -H 'authorization: Token token:\"authtoken2\"' \
-  -H 'cache-control: no-cache' \
-  -H 'content-type: application/json' \
-```    
-
->The above command returns in JSON structure:
-
-```json
-  {
-  	"user": [{"name": "Breant Wells",
-  			  "mobile_number": "411-906-6802",
-  			  "status": "Accepted"},
-       		{ "name": "Randy Gray",
-  			  "mobile_number": "769-472-2464",
-  			  "status": "Accepted"},
-           	{"name": "Kenneth Chabers",
-  			 "mobile_number": "452-702-8972",
-  			 "status": "Pending"}]
-  }
-``` 
-
-### HTTP Request
-
-`GET http://base_url/api/tanda/:id/users`
-
-### Parameters
-
-    Parameter | type | Description | Required 
-    --------- | ------- | ----------- |-----------
-              |         |             |           
-
-<aside class="success">Status Code :200 OK </aside>
-<aside class="warning">Error Code  :401 Unauthorized error</aside>
                
 ## Tanda payment
 
@@ -173,54 +129,4 @@ curl -X POST \
 
 
 
-## Tanda add user
-
-This API is used to add user (send the request to the user) for the Tanda with the his/her mobile contact.
-
-```shell
-curl -X POST \
-  http://base_url/api/tanda/:id/users \
-  -H 'accept: application/json' \
-  -H 'authorization: Token token:\"authtoken2\"' \
-  -H 'cache-control: no-cache' \
-  -H 'content-type: application/json' \
-```    
-
->The above command returns in JSON structure: 
-
-```json
-   {
-   	"invite_users": [{
-   		"name": "Raj",
-   		"mobile_number": "9898393362"
-   	}, {
-   		"name": "Parvesh",
-   		"mobile": "9898367632"
-   	}],
-   
-   
-   	"users": [{
-   		"name": "Shyam",
-   		"mobile_number": "8393473877"
-   	}, {
-   		"name": "Jai",
-   		"mobile_number": "7874738747"
-   	}]
-   }
-
-``` 
-
-### HTTP Request
-
-`POST http://base_url/api/tanda/:id/users`
-
-### Parameters
-
-    Parameter | type | Description | Required 
-    --------- | ------- | ----------- |-----------
-              |         |             |           
-
-<aside class="success">Status Code :200 OK </aside>
-<aside class="warning">Error Code  :422 Unprocessable entity</aside>
-    
 
