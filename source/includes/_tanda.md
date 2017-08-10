@@ -190,19 +190,19 @@ curl -X POST \
 
 ```json
    {
-   	"invite_user": [{
+   	"invite_users": [{
    		"name": "Raj",
    		"mobile_number": "9898393362"
    	}, {
    		"name": "Parvesh",
    		"mobile": "9898367632"
-   	}]
-   } 
-   {
-      	"user": [{
+   	}],
+   
+   
+   	"users": [{
    		"name": "Shyam",
    		"mobile_number": "8393473877"
-   	} {
+   	}, {
    		"name": "Jai",
    		"mobile_number": "7874738747"
    	}]
