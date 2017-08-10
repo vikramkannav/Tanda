@@ -1,46 +1,46 @@
-#Bank Detail
+#Bank detail
 
-##Bank Detail
+##Bank detail
 
-This API is used for submit the Bank information.
+This API is used for the submit the information of the bank with some details like account name, bank name, account number and state name.
 
 ```shell
 curl -X POST \
-  http://base_url/bankdetail \
+  http://base_url/api/bankdetail\
   -H 'accept: application/json' \
   -H 'authorization: Token token:\"authtoken2\"' \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
   -d '{
-	"bankDetail": {
-		"account_name": "vikram",
+	"bankdetail": {
+		"account_name": "vikram sharma",
 		"bank_name":"SBI",
 		"account_number":"1204",
-		"state_name":"Paris"
+		"state_name":"Haryana"
 	}
 }'
 ```   
 
->The above command returns JSON structured like this:
+>The above command returns in JSON structure:
 
 ```json
 {
-	"bankDetail": {
-		"account_name": "vikram",
-		"bank_name":"SBI",
-		"account_number":"1204",
-		"state_name":"Paris"
-		}
+	"bankdetail": {
+		"account_name": "vikram sharma",
+		"bank_name": "SBI",
+		"account_number": "1204",
+		"state_name": "Harayana"
+	}
 }
 ```
->The above code returns errors in JSON struture 
+>The above code returns errors in JSON structure 
 
 ```json
  {
-   "errors": [{
-     "message":"Please enter the correct account holder name ,bank name, account number & state name"
-      }]
-  }
+ 	"errors": [{
+ 		"message": "Please enter the correct account holder name ,bank name, account number & state name"
+ 	}]
+ }
 ```
 ### HTTP Request
 
@@ -48,12 +48,12 @@ curl -X POST \
 
 ### Parameters
 
-    Parameter | type | Description | Required |	Default
-    --------- | ------- | ----------- |-----------|---------
-    account_name  | string  | User bank account name   |  true     |
-    bank_name  | string  | User bank name   |  true     |
-    account_number  | int  | User Account Number   |  true     |
-    state_name  | string  | User state name   |  true     |
+    Parameter | type | Description | Required 
+    --------- | ------- | ----------- |-----------
+    account_name  | string  | Account name of the user   |  true
+    bank_name  | string  | Bank name of the user   |  true
+    account_number  | int  | Account number of the user   |  true
+    state_name  | string  | State name of the user  |  true     |
     
 <aside class="success">Status Code :200 OK </aside>
 <aside class="warning">Error Code  :401 Unauthorized error</aside>

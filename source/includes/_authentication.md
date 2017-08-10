@@ -2,48 +2,50 @@
 
 ## Sign up 
 
-This API is used for the sign up.In this API auth token not required to be passed in header section.
+The sign up API is used for the user sign up. 
+
+This is open API and auth-token is not required to be passed in the header section.   
 
 ```shell
 curl -X POST \
-  http://base_url/signup \
+  http://base_url/api/signup \
   -H 'accept: application/json' \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
    -d '{
 	"user": {
-		"name": "vikram",
-		"email": "vikramkanav@gmail.com",
-		"password": "xyz",
-		"mobile_number": "9953055456"
-	}
+    		"name": "vikram",
+    		"email": "vikramkanav@gmail.com",
+    		"password": "xyzxyz",
+    		"mobile_number": "9953055456"
+    	}
 }'
 ```
->The above command returns JSON structured like this:
+
+>The above command returns in JSON structure:
 
 ```json
-
 {
-    "user": {
-      "name":"vikram",
-      "email":"vikramkanav@gmail.com",
-      "password":"xyz",
-      "mobile_number":"9953055456"
-    },
-    "refresh_token":"refreshtoken1",
-    "auth_token" :"authtoken1"
+	"user": {
+		"name": "vikram",
+		"email": "vikramkanav@gmail.com",
+		"password": "xyzxyz",
+		"mobile_number": "9953055456"
+	},
+	"refresh_token": "refreshtoken1",
+	"auth_token": "authtoken1"
 }
 ```
 
->The above command return the errors in json structure
+>The above command returns errors in JSON structure:
 
 ```json
 
   {
-  "errors":[{
-    "message" : "Please enter the valid email address, password & mobile number"
-  }]
- }
+  	"errors": [{
+  		"message": "Please enter the valid email address, password & mobile number"
+  	}]
+  }
 ```
 
 ### HTTP Request
@@ -52,36 +54,38 @@ curl -X POST \
  
 ### Parameters
 
-    Parameter | type | Description | Required |	Default
-    --------- | ------- | ----------- |-----------|---------
-    name  | string  | User Name  | true      |
-    email     | string  | Email address of the user | true |
-    mobile_number | int | user mobile Number | true |
-    password    | string | Password of the user     | true | 
+    Parameter | type | Description | Required 
+    --------- | ------- | ----------- |-----------
+    name  | string  | Name of the user  | true      
+    email     | string  | Email address of the user | true 
+    mobile_number | int | Mobile number of the user| true
+    password    | string | Password of the user| true 
     
 <aside class="success">Status Code :200 OK </aside>
 <aside class="warning">Error Code  :422 Unprocessable entity</aside>
 
 
-## Sign In
+## Sign in
 
-This API is used for the Sign In. This is open API auth token is not to be required to passed in Header
+The sign in API is used for the user sign in.
+
+This is open API and auth-token is not required to be passed in the header section. 
 
 ```shell
 curl -X POST \
-  http://base_url/signin \
+  http://base_url/api/signin \
   -H 'accept: application/json' \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
   -d '{
 	"user" :{
 		 "email": "vikramkanav",
-	      "password":"xyz",
+	      "password":"xyzxyz"
 	  }
 }'
 ```
 
->The above command returns JSON structured like this:
+>The above command return in JSON structure:
 
 ```json
 
@@ -97,14 +101,14 @@ curl -X POST \
 }
 
 ```
-> This returns the errors message in json  structured like this:
+>The above command return errors in JSON structure:
 
 ```json
   {
-  	"errors":[{
+  	"errors": [{
   		"message": "Please enter the valid email address and password"
   	}]
-  	
+ 
   }
 ```
 
@@ -115,57 +119,56 @@ curl -X POST \
  
 ### Parameters
 
-    Parameter | type | Description | Required |	Default
-    --------- | ------- | ----------- |-----------|---------
-    email  | string  | email address of the user  |  true     |
-    password  | string  | User password   |  true     |
+    Parameter | type | Description | Required 
+    --------- | ------- | ----------- |-----------
+    email  | string  | Email address of the user  |  true
+    password  | string  | Password of the user   |  true
 
 
 <aside class="success">Status Code :200 OK </aside>
 <aside class="warning">Error Code  :422 Unprocessable entity</aside>
     
-##Update Profile
+##Update profile
 
-This API is used for the update profile 
+This API is used for the update profile by the user. 
 
 ```shell
 curl -X PUT \
-  http://base_url/signup \
+  http://base_url/api/user \
   -H 'accept: application/json' \
   -H 'authorization: Token token:\"authtoken2\"' \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
   -d '{
-	"user" :{
-		 "name" :"vikram",
-		"mobile_number": "9466205050",
-	    "password":"xyzabc",
-	    "confirm_password":"xyzabc",
-	  }
+	"user": {
+    	"name": "vikram",
+    	"mobile_number": "9466205050",
+    	"password": "xyzabc123",
+    	"confirm_password": "xyzabc123",
+    }
 }'
 ```
 
->The above command returns JSON structured like this:
+>The above command returns in JSON structure:
 
 ```json
  {
-   "user": {
-     "name":"vikram",
-     "email": "vikramkanav@gmail.com",
-     "mobile_number":"9466205050",
-     "password": "abcxyz"  
-     },
-   }
+ 	"user": {
+ 		"name": "vikram",
+ 		"email": "vikramkanav@gmail.com",
+ 		"mobile_number": "9466205050",
+ 		"password": "xyzabc123"
+ 	}
+ }
 ```
 >The above code returns errors in JSON structure 
 
 ```json
  {
-   "errors": [{
-     "message":"Please enter the correct user name, mobile number & password"
-      }
-      }
-  }
+ 	"errors": [{
+ 		"message": "Please enter the correct user name, mobile number & password"
+ 	}]
+ }
 ```
 ### HTTP Request
 
@@ -173,21 +176,24 @@ curl -X PUT \
 
 ### Parameters
 
-    Parameter | type | Description | Required |	Default
-    --------- | ------- | ----------- |-----------|---------
-    name  | string  | User name of the user   |  true     |
-    mobile_number  | string  | Mobile number of the user   |  true     |
-    password  | string  | password of the user   |  true     |
-    confirm_password | string  | confirm password of the user   |  true     |
+    Parameter | type | Description | Required 
+    --------- | ------- | ----------- |-----------
+    name  | string  | Name of the user   |  true     
+    mobile_number  | string  | Mobile number of the user  |  true     
+    password  | string  | Password of the user   |  true     
+    confirm_password | string  | Confirm password of the user   |  true     
     
 <aside class="success">Status Code :200 OK </aside>
 <aside class="warning">error code  :401 unauthrized error </aside>
 <aside class="warning">error code  :422 unprocessable entity </aside>
 
 
-##Forget Password 
+##Forget password 
 
-This API is used for the update profile 
+This API is used to reset the password with forget password option with an email address.
+
+This is open API and auth-token is not required to be passed in the header section. 
+
 
 ```shell
 curl -X POST \
@@ -197,27 +203,26 @@ curl -X POST \
   -H 'content-type: application/json' \
   -d '{
 	"user" :{
-      "email_address": "vikramkanav@gmail.com"
+      "email": "vikramkanav@gmail.com"
 	  }
 }'
 ```
 
->The above command returns JSON structured like this:
+>The above command returns in JSON structure:
 
 ```json
  {
-  "message":"Password is send on your email address"
-  }
+ 	"message": "Password is send on your email address"
+ }
 ```
 >The above code returns errors in JSON structure 
 
 ```json
  {
-   "errors":[ {
-     "message":"Please enter the correct email address" 
-       }
-      ]
-  }
+ 	"errors": [{
+ 		"message": "Please enter the correct email address"
+ 	}]
+ }
 ```
 ### HTTP Request
 
@@ -225,18 +230,18 @@ curl -X POST \
 
 ### Parameters
 
-    Parameter | type | Description | Required |	Default
-    --------- | ------- | ----------- |-----------|---------
-    email | string | user email address | true|
+    Parameter | type | Description | Required 
+    --------- | ------- | ----------- |-----------
+    email | string | Email address of the user | true|
     
-     
+       
 <aside class="success">Status Code :200 OK </aside>
 <aside class="warning">Error code  :422 Unprocessable entity </aside>
 
 
-##Retrieve access Token 
+##Retrieve access token 
 
-This API is used for the retrive the access token
+This API is used for the retrieve the access token with help of refresh token.
 
 ```shell
 curl -X POST \
@@ -249,18 +254,18 @@ curl -X POST \
    	"refresh_token":"refreshtoken1"
    }
 ```
->The above command returns JSON structured like this:
+>The above command returns in JSON structure:
 
 ```json
 {
-    "user": {
-      "name":"vikram",
-      "email":"vikramkanav@gmail.com",
-      "password":"xyz",
-      "mobile_number":"9953055456"
-    },
-    "refresh_token":"refreshtoken2",
-    "auth_token" :"authtoken2"
+	"user": {
+		"name": "vikram",
+		"email": "vikramkanav@gmail.com",
+		"password": "xyz",
+		"mobile_number": "9953055456"
+	},
+	"refresh_token": "refreshtoken2",
+	"auth_token": "authtoken2"
 }
 ```
 ### HTTP Request
@@ -269,6 +274,6 @@ curl -X POST \
 
 ### Parameters
 
-    Parameter | type | Description | Required |	Default
-    --------- | ------- | ----------- |-----------|---------
-     refresh_token| string |refresh token |true|               |           |
+    Parameter | type | Description | Required 
+    --------- | ------- | ----------- |-----------
+     refresh_token| string |Refresh token of the user|true               |           |

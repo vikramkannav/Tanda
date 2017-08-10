@@ -2,7 +2,10 @@
 
 ## Create Tanda
 
-This API is used for the  create Tanda. 
+This API is used for the create Tanda.
+
+User can create Tanda with some information like name, Amount, 
+day (weekday) or date (month, date) of Tanda, type (weekly or monthly)
 
 ```shell
 curl -X POST \
@@ -21,23 +24,18 @@ curl -X POST \
 }'
 ```
 
->The above code is return the json structure like 
+>The above command returns in JSON structure:
 
 ```json
 {
-  "tanda" :{
-  		"amount":"200",
-  		"date": "sunday",
-  	    "type": "weekly",
-  	    "name": "Tanda 1"
-  	  }
+	"tanda": {
+		"amount": "200",
+		"date": "sunday",
+		"type": "weekly",
+		"name": "Tanda 1"
+	}
 }
 ``` 
-
->The above code returns errors in JSON structure 
-
-```json
-```
 
 ### HTTP Request
 
@@ -45,20 +43,21 @@ curl -X POST \
 
 ### Parameters
 
-    Parameter | type | Description | Required |	Default
-    --------- | ------- | ----------- |-----------|---------
-    amount| int   | Tanda amount | true  |
-    tanda_day  | string  | Tanda date or day | true  |
-    type  | string | Weekly or Monthly | true |
-    name  | string | Tanda Name  | true  |
+    Parameter | type | Description | Required 
+    --------- | ------- | ----------- |-----------
+    amount| int   | Amount of Tanda  | true  
+    tanda_day  | string  | Date or day of the Tanda | true  
+    type  | string | Tanda type weekly or monthly | true 
+    name  | string | Name of Tanda  | true  
 
 <aside class="success">Status Code :200 OK </aside>
 <aside class="warning">Error Code  :401 Unauthorized error</aside>
 
   
-## Tanda List
+## Tanda list
 
-This is used for the list of the Tanda list.
+The API is used to show the list of Tanda with Tanda name, 
+Start date of the Tanda & total number of users in Tanda.
 
 ```shell
 curl -X GET \
@@ -69,21 +68,13 @@ curl -X GET \
   -H 'content-type: application/json' \
 ```    
 
->The above code is return the json structure like 
+>TThe above command returns in JSON structure:
 
 ```json
 {
-	"tanda_list": [{
-			"name": "tanda1"
-		},
-		{
-			"name": "tanda2"
-		},
-		{
-			"name": "tanda3"
-		}
-
-	]
+  "tanda_list":   [{"name": "tanda1"},
+				   {"name": "tanda2"},
+		           {"name": "tanda3"}]
 }
 ``` 
 
@@ -93,18 +84,19 @@ curl -X GET \
 
 ### Parameters
 
-    Parameter | type | Description | Required |	Default
-    --------- | ------- | ----------- |-----------|---------
-              |         |             |           |
+    Parameter | type | Description | Required 
+    --------- | ------- | ----------- |-----------
+              |         |             |           
 <aside class="success">Status Code :200 OK </aside>
 <aside class="warning">Error Code  :422 Unprocessable entity</aside>
 
               
-## Tanda Users
+## Tanda users
 
-This API is used for the list of the Tanda users.
+This API is used to list of user those are accepted and pending the acceptance of the this Tanda request.
 
-```shell
+```
+shell
 curl -X GET \
   http://base_url/api/tanda/:id/users \
   -H 'accept: application/json' \
@@ -113,30 +105,20 @@ curl -X GET \
   -H 'content-type: application/json' \
 ```    
 
->The above code is return the json structure like 
+>The above command returns in JSON structure:
 
 ```json
   {
-   "user":[
-       {
-       "name":"Breant Wells",
-       "mobile_number":"411-906-6802",
-       "status": "Accepted"
-       },
-       
-      {
-        "name":"Randy Gray",
-        "mobile_number": "769-472-2464",
-        "status": "Accepted"
-       },
-       
-       {
-        "name":"Kenneth Chabers",
-        "mobile_number":"452-702-8972",
-        "status": "Pending"
-        }
-        ]
-   }
+  	"user": [{"name": "Breant Wells",
+  			  "mobile_number": "411-906-6802",
+  			  "status": "Accepted"},
+       		{ "name": "Randy Gray",
+  			  "mobile_number": "769-472-2464",
+  			  "status": "Accepted"},
+           	{"name": "Kenneth Chabers",
+  			 "mobile_number": "452-702-8972",
+  			 "status": "Pending"}]
+  }
 ``` 
 
 ### HTTP Request
@@ -145,16 +127,16 @@ curl -X GET \
 
 ### Parameters
 
-    Parameter | type | Description | Required |	Default
-    --------- | ------- | ----------- |-----------|---------
-              |         |             |           |
+    Parameter | type | Description | Required 
+    --------- | ------- | ----------- |-----------
+              |         |             |           
 
 <aside class="success">Status Code :200 OK </aside>
 <aside class="warning">Error Code  :401 Unauthorized error</aside>
                
-## Tanda Payment
+## Tanda payment
 
-This is API used for the list of the Tanda list.
+This API is used to pay of the Tanda.
 
 ```shell
 curl -X POST \
@@ -165,11 +147,11 @@ curl -X POST \
   -H 'content-type: application/json' \
 ```    
 
->The above code is return the json structure like 
+>The above command returns in JSON structure:
 
 ```json
 {
- "message" :"Payement is done Successfully"
+ "message" :"Payment is done successfully"
 }
 
 ``` 
@@ -180,18 +162,20 @@ curl -X POST \
 
 ### Parameters
 
-    Parameter | type | Description | Required |	Default
-    --------- | ------- | ----------- |-----------|---------
-              |         |             |           |
+    Parameter | type | Description | Required 
+    --------- | ------- | ----------- |-----------
+              |         |             |           
+
+
 <aside class="success">Status Code :200 OK </aside>
 <aside class="warning">Error Code  :401 Unauthorized error</aside>
 <aside class="warning">Error Code  :422 Unprocessable entity</aside>
 
 
 
-## Tanda Add user
+## Tanda add user
 
-This is API used  for add user in Tanda.
+This API is used to add user (send the request to the user) for the Tanda with the his/her mobile contact.
 
 ```shell
 curl -X POST \
@@ -202,7 +186,7 @@ curl -X POST \
   -H 'content-type: application/json' \
 ```    
 
->The above code is return the json structure like 
+>The above command returns in JSON structure: 
 
 ```json
    {
@@ -232,9 +216,9 @@ curl -X POST \
 
 ### Parameters
 
-    Parameter | type | Description | Required |	Default
-    --------- | ------- | ----------- |-----------|---------
-              |         |             |           |
+    Parameter | type | Description | Required 
+    --------- | ------- | ----------- |-----------
+              |         |             |           
 
 <aside class="success">Status Code :200 OK </aside>
 <aside class="warning">Error Code  :422 Unprocessable entity</aside>
